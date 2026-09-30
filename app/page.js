@@ -11,9 +11,9 @@ const TOTAL = CORE.length + GROUPS.reduce((a, g) => a + g[1].length, 0);
 const STORY = [["l1", 3500], ["l2", 3500], ["offline", 2500], ["night", 8500], ["member", 10500], ["laptop", 4000], ["tour", 10000], ["live", 4500], ["teams", 7500], ["meet", 5500]];
 
 /* ACT II — beat-locked on song.mp3 (auto-pairs reveals if the roster outgrows the song) */
-const B = BEATS.filter(b => b >= 4.8);
+const B = BEATS.filter(b => b >= 3);
 const STEPS = (() => { // slower: each Core member holds 4 beats, every Next-Gen face gets 2 beats
-  const at = k => B[k] ?? B[B.length - 1] + (k - B.length + 1) * 0.467;
+  const at = k => B[k] ?? B[B.length - 1] + (k - B.length + 1) * 0.472;
   const s = []; let k = 0;
   CORE.forEach((_, i) => { s.push({ t: at(k), kind: "lead", i }); k += 4; });
   s.push({ t: at(k), kind: "next" }); k += 4;
